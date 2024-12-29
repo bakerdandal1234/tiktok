@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazing TikTok Background</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(45deg, #ff0f7b, #f89b29);
+            background-size: 300% 300%;
+            animation: gradient 10s ease infinite;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            text-align: center;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            animation: bounce 2s ease infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-30px); }
+            60% { transform: translateY(-15px); }
+        }
+
+        .social-link {
+            font-size: 1.5em;
+            background: rgba(255,255,255,0.2);
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .social-link:hover {
+            background: rgba(255,255,255,0.3);
+            transform: scale(1.1);
+        }
+
+        .emoji {
+            font-size: 2em;
+            margin: 10px;
+            animation: spin 4s linear infinite;
+            display: inline-block;
+        }
+
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+
+        .follower-count {
+            font-size: 1.2em;
+            margin-top: 20px;
+            background: rgba(255,255,255,0.2);
+            padding: 10px 20px;
+            border-radius: 15px;
+            display: inline-block;
+        }
+
+        @keyframes pop {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        .pop {
+            animation: pop 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <span class="emoji">💫</span>
+        <h1>Follow Me On TikTok</h1>
+        <span class="emoji">✨</span>
+        <a href="https://tiktok.com/@anony_mous1237" class="social-link" onclick="increaseFollowers(event)">@anony_mous1237</a>
+        <div class="follower-count">Followers: <span id="followerCount">0</span></div>
+    </div>
+
+    <script>
+        let followers = 0;
+        const countElement = document.getElementById('followerCount');
+        
+        function increaseFollowers(event) {
+            event.preventDefault(); // Prevent immediate navigation
+            followers++;
+            countElement.textContent = followers;
+            countElement.parentElement.classList.remove('pop');
+            void countElement.parentElement.offsetWidth; // Trigger reflow
+            countElement.parentElement.classList.add('pop');
+            
+            // Navigate to TikTok after a small delay
+            setTimeout(() => {
+                window.location.href = 'https://tiktok.com/@anony_mous1237';
+            }, 500);
+        }
+    </script>
+</body>
+</html>
