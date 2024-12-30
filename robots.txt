@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://bakerdandal1234.github.io/tiktok/sitemap.xml
